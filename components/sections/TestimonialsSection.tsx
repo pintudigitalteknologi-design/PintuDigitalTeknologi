@@ -1,0 +1,148 @@
+"use client";
+
+import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "CEO, TechFlow",
+    content:
+      "Pintu Digital Teknologi mengubah kehadiran online kami sepenuhnya. Website tidak hanya terlihat memukau tetapi juga meningkatkan konversi kami sebesar 45%.",
+    avatar: "SJ",
+    color: "bg-blue-50 text-blue-600",
+  },
+  {
+    name: "Budi Santoso",
+    role: "Founder, CloudSync Indonesia",
+    content:
+      "Bekerja dengan tim ini sangat lancar. Mereka memahami visi bisnis kami dan mengeksekusinya melampaui ekspektasi.",
+    avatar: "BS",
+    color: "bg-emerald-50 text-emerald-600",
+  },
+  {
+    name: "Emma Davis",
+    role: "Marketing Director, GrowthHub",
+    content:
+      "Detail dan komitmen terhadap keunggulan teknis sangat tak tertandingi. Website kami memuat lebih cepat dan ROI yang sangat jelas.",
+    avatar: "ED",
+    color: "bg-purple-50 text-purple-600",
+  },
+  {
+    name: "James Wilson",
+    role: "Owner, StartupHub",
+    content:
+      "Tim profesional, komunikasi eksekutif yang baik, dan hasil luar biasa. Mitra teknologi yang bisa diandalkan untuk jangka panjang.",
+    avatar: "JW",
+    color: "bg-orange-50 text-orange-600",
+  },
+];
+
+// Duplikasi data untuk efek seamless looping marquee
+const scrollTestimonials = [...testimonials, ...testimonials];
+
+export function TestimonialsSection() {
+  return (
+    <section id="testimonials" className="py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div className="text-center space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 bg-slate-100 rounded-full text-slate-600 text-sm font-semibold tracking-wide uppercase"
+          >
+            Testimonial
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+            Dipercaya oleh{" "}
+            <span className="text-[#8BCDF0]">Pemimpin Industri</span>
+          </h2>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+            Dampak nyata yang dirasakan klien kami setelah bertransformasi
+            digital bersama tim profesional kami.
+          </p>
+        </div>
+      </div>
+
+      {/* Marquee Container */}
+      <div className="relative flex overflow-x-hidden group py-4">
+        <motion.div
+          className="flex whitespace-nowrap"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 30,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        >
+          {scrollTestimonials.map((t, index) => (
+            <div
+              key={index}
+              className="inline-block w-[350px] md:w-[450px] mx-4 whitespace-normal"
+            >
+              <div className="h-full p-8 bg-slate-50 border border-slate-100 rounded-3xl hover:border-blue-200 hover:bg-white hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 text-amber-400 fill-amber-400"
+                    />
+                  ))}
+                </div>
+
+                <p className="text-slate-700 leading-relaxed text-lg mb-8 font-medium">
+                  "{t.content}"
+                </p>
+
+                <div className="flex items-center gap-4">
+                  <div
+                    className={`w-12 h-12 rounded-full ${t.color} flex items-center justify-center font-bold text-sm`}
+                  >
+                    {t.avatar}
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900">{t.name}</p>
+                    <p className="text-sm text-slate-500">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Fade Gradient Overlay (Kiri & Kanan) */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+      </div>
+
+      {/* Stats Section - Light Version */}
+      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-12 bg-slate-50 rounded-[2rem] border border-slate-100">
+          {[
+            { number: "150+", label: "Klien Puas" },
+            { number: "500+", label: "Proyek Selesai" },
+            { number: "98%", label: "Retensi Klien" },
+            { number: "12+", label: "Tahun Pengalaman" },
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="text-center"
+            >
+              <div className="text-3xl md:text-4xl font-extrabold text-blue-600 mb-1">
+                {stat.number}
+              </div>
+              <p className="text-xs text-slate-400 uppercase tracking-widest font-bold">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div> */}
+    </section>
+  );
+}
