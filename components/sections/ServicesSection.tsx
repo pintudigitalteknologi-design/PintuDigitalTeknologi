@@ -10,13 +10,14 @@ import {
   Database,
   ArrowRight,
   CheckCircle2,
+  Video,
 } from "lucide-react";
 
 const services = [
   {
     id: "ai",
     icon: Cpu,
-    title: "AI & Machine Learning",
+    title: "AI, ML & Deep Learning",
     description:
       "Integrasi kecerdasan buatan untuk otomatisasi bisnis. Mulai dari Predictive Analytics hingga Deep Learning agent yang bekerja 24/7.",
     features: [
@@ -31,7 +32,7 @@ const services = [
   {
     id: "web",
     icon: Globe,
-    title: "High-Performance Web",
+    title: "Web Development",
     description:
       "Membangun infrastruktur web modern menggunakan Next.js. Fokus pada kecepatan, SEO, dan skalabilitas tingkat enterprise.",
     features: ["SaaS Architecture", "Headless CMS", "Global CDN"],
@@ -42,9 +43,9 @@ const services = [
   {
     id: "mobile",
     icon: Smartphone,
-    title: "Mobile Development",
+    title: "Mobile Apps",
     description:
-      "Satu codebase untuk iOS dan Android tanpa mengorbankan performa. Aplikasi native-feel dengan React Native.",
+      "Satu codebase untuk iOS dan Android tanpa mengorbankan performa. Aplikasi native-feel dengan React Native dan Flutter.",
     features: ["Cross-Platform", "Offline-First", "Real-time Sync"],
     color: "text-orange-400",
     border: "hover:border-orange-500/50",
@@ -53,13 +54,24 @@ const services = [
   {
     id: "design",
     icon: Palette,
-    title: "UI/UX & Branding",
+    title: "UI/UX & Design",
     description:
       "Desain yang tidak hanya cantik, tapi mengonversi. Kami menggabungkan estetika dengan psikologi pengguna.",
     features: ["User Research", "Design Systems", "Brand Identity"],
     color: "text-pink-400",
     border: "hover:border-pink-500/50",
     bg: "hover:bg-pink-500/5",
+  },
+  {
+    id: "video",
+    icon: Video,
+    title: "Video Production",
+    description:
+      "Menghidupkan brand Anda dengan konten video dinamis, motion graphics, dan cinematic storytelling visual yang memukau.",
+    features: ["Motion Graphics", "Video Editing", "Content Creation"],
+    color: "text-red-400",
+    border: "hover:border-red-500/50",
+    bg: "hover:bg-red-500/5",
   },
   {
     id: "data",

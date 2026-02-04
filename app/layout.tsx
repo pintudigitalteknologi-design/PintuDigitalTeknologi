@@ -21,11 +21,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     default:
-      "Garasi Teknologi - Jasa Pembuatan Website Professional & Modern | Digital Agency Indonesia",
-    template: "%s | Garasi Teknologi Digital Agency Indonesia",
+      "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern | Digital Agency Indonesia",
+    template: "%s | Pintu Digital Teknologi Digital Agency Indonesia",
   },
   description:
-    "Garasi Teknologi adalah digital agency professional yang mengkhususkan diri dalam pembuatan website modern, cepat, dan SEO-optimized. Kami mengubah ide bisnis Anda menjadi pengalaman digital yang menakjubkan. Konsultasi gratis!",
+    "Pintu Digital Teknologi adalah digital agency professional yang mengkhususkan diri dalam pembuatan website modern, cepat, dan SEO-optimized. Kami mengubah ide bisnis Anda menjadi pengalaman digital yang menakjubkan. Konsultasi gratis!",
   keywords: [
     // --- EXISTING WEB KEYWORDS ---
     "jasa pembuatan website",
@@ -90,12 +90,12 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "Garasi Teknologi Digital Agency",
-      url: "https://Garasi Teknologi.dev",
+      name: "Pintu Digital Teknologi Digital Agency",
+      url: "https://Pintu Digital Teknologi.dev",
     },
   ],
-  creator: "Garasi Teknologi Team",
-  publisher: "Garasi Teknologi Digital Agency",
+  creator: "Pintu Digital Teknologi Team",
+  publisher: "Pintu Digital Teknologi Digital Agency",
   metadataBase: new URL("https://garasiteknologi.dev"),
   alternates: {
     canonical: "/",
@@ -121,27 +121,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://Garasi Teknologi.dev",
-    siteName: "Garasi Teknologi Digital Agency",
-    title: "Garasi Teknologi - Jasa Pembuatan Website Professional & Modern",
+    url: "https://Pintu Digital Teknologi.dev",
+    siteName: "Pintu Digital Teknologi Digital Agency",
+    title: "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
     description: "Website modern, cepat, dan SEO-optimized untuk bisnis Anda.",
     images: [
       {
-        url: "https://Garasi Teknologi.dev/og-image.png",
+        url: "https://Pintu Digital Teknologi.dev/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Garasi Teknologi - Digital Agency Indonesia",
+        alt: "Pintu Digital Teknologi - Digital Agency Indonesia",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Garasi Teknologi - Jasa Pembuatan Website Professional & Modern",
+    title: "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
     description:
       "Website modern, cepat, dan SEO-optimized untuk bisnis Anda. Konsultasi gratis!",
-    images: ["https://Garasi Teknologi.dev/twitter-image.png"],
-    creator: "@Garasi Teknologi",
+    images: ["https://Pintu Digital Teknologi.dev/twitter-image.png"],
+    creator: "@Pintu Digital Teknologi",
   },
   icons: {
     icon: [
@@ -169,10 +169,10 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   generator: "Next.js",
-  applicationName: "Garasi Teknologi",
+  applicationName: "Pintu Digital Teknologi",
   appleWebApp: {
     capable: true,
-    title: "Garasi Teknologi Agency",
+    title: "Pintu Digital Teknologi Agency",
     statusBarStyle: "default",
   },
 };
@@ -202,9 +202,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Garasi Teknologi Digital Agency",
-              url: "https://Garasi Teknologi.dev",
-              logo: "https://Garasi Teknologi.dev/logo.png",
+              name: "Pintu Digital Teknologi Digital Agency",
+              url: "https://Pintu Digital Teknologi.dev",
+              logo: "https://Pintu Digital Teknologi.dev/logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+62-21-xxxx-xxxx",
@@ -213,8 +213,8 @@ export default function RootLayout({
                 availableLanguage: ["Indonesian", "English"],
               },
               sameAs: [
-                "https://www.instagram.com/Garasi Teknologi",
-                "https://www.linkedin.com/company/Garasi Teknologi",
+                "https://www.instagram.com/Pintu Digital Teknologi",
+                "https://www.linkedin.com/company/Pintu Digital Teknologi",
               ],
             }),
           }}

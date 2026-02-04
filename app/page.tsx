@@ -4,6 +4,9 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { PortfolioSection } from "@/components/sections/PortfolioSection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
+
 
 export default function Home() {
   return (
@@ -17,7 +20,7 @@ export default function Home() {
       <ServicesSection />
 
       {/* 3. Portfolio Section - Recent projects showcase */}
-      {/* <PortfolioSection /> */}
+       {/*<PortfolioSection /> */}
 
       {/* 6. TechStack Section - Service packages */}
       <TechStackSection />

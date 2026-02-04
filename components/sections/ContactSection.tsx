@@ -47,12 +47,10 @@ export function ContactSection() {
           <div className="space-y-8 animate-slide-in-left">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                Let's Build Something Amazing
+                Mari Bangun Sesuatu yang Menakjubkan
               </h2>
               <p className="text-lg text-foreground/70">
-                Ready to transform your digital presence? Get in touch with our
-                team today. We'll respond within 24 hours.
-              </p>
+                Siap untuk mentransformasi kehadiran digital Anda? Hubungi tim kami hari ini. Kami akan merespons dalam waktu 24 jam.              </p>
             </div>
 
             {/* Contact Info */}

@@ -5,35 +5,35 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, TechFlow",
+    name: "Andi Pratama",
+    role: "Owner Website E-Commerce Lokal",
     content:
-      "Pintu Digital Teknologi mengubah kehadiran online kami sepenuhnya. Website tidak hanya terlihat memukau tetapi juga meningkatkan konversi kami sebesar 45%.",
-    avatar: "SJ",
+      "Website yang dibuat sangat rapi dan mudah digunakan. Penjualan kami meningkat karena tampilan lebih profesional dan proses checkout jadi lebih cepat.",
+    avatar: "AP",
     color: "bg-blue-50 text-blue-600",
   },
   {
-    name: "Budi Santoso",
-    role: "Founder, CloudSync Indonesia",
+    name: "Rizky Maulana",
+    role: "Pengelola Website Drone & Aerial Service",
     content:
-      "Bekerja dengan tim ini sangat lancar. Mereka memahami visi bisnis kami dan mengeksekusinya melampaui ekspektasi.",
-    avatar: "BS",
+      "Timnya paham kebutuhan bisnis kami. Website drone service kami sekarang terlihat modern dan mudah diakses oleh klien.",
+    avatar: "RM",
     color: "bg-emerald-50 text-emerald-600",
   },
   {
-    name: "Emma Davis",
-    role: "Marketing Director, GrowthHub",
+    name: "Siti Nurhaliza",
+    role: "Pemilik Landing Page Produk Digital",
     content:
-      "Detail dan komitmen terhadap keunggulan teknis sangat tak tertandingi. Website kami memuat lebih cepat dan ROI yang sangat jelas.",
-    avatar: "ED",
+      "Landing page yang dibuat sangat fokus ke konversi. Leads yang masuk jauh lebih banyak dibandingkan website sebelumnya.",
+    avatar: "SN",
     color: "bg-purple-50 text-purple-600",
   },
   {
-    name: "James Wilson",
-    role: "Owner, StartupHub",
+    name: "Dedi Saputra",
+    role: "Owner Website Company Profile UMKM",
     content:
-      "Tim profesional, komunikasi eksekutif yang baik, dan hasil luar biasa. Mitra teknologi yang bisa diandalkan untuk jangka panjang.",
-    avatar: "JW",
+      "Hasilnya sesuai dengan kebutuhan bisnis kami. Website terlihat profesional dan membantu meningkatkan kepercayaan pelanggan.",
+    avatar: "DS",
     color: "bg-orange-50 text-orange-600",
   },
 ];
