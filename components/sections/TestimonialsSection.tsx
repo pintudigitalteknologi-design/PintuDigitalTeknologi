@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     name: "Andi Pratama",
-    role: "Owner Website E-Commerce Lokal",
+    role: "Pemilik Rental Billing Playstation",
     content:
-      "Website yang dibuat sangat rapi dan mudah digunakan. Penjualan kami meningkat karena tampilan lebih profesional dan proses checkout jadi lebih cepat.",
+      "Pintu Digital Teknologi mengubah kehadiran online kami sepenuhnya. Website tidak hanya terlihat memukau tetapi juga meningkatkan konversi kami sebesar 45%.",
     avatar: "AP",
     color: "bg-blue-50 text-blue-600",
   },

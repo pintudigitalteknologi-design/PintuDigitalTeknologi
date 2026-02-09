@@ -43,7 +43,12 @@ export const metadata: Metadata = {
     "jasa website murah",
     "website custom",
     "web developer professional",
+    "jasa pembuatan website mahasiswa",
     "jasa pembuatan website jakarta",
+    "jasa pembuatan website jawa",
+    "jasa pembuatan website sumatera",
+    "jasa pembuatan website bali",
+    "jasa pembuatan website kalimantan",
     "digital agency jakarta",
     "website bisnis",
     "pembuatan web",
@@ -90,13 +95,13 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "Pintu Digital Teknologi Digital Agency",
-      url: "https://Pintu Digital Teknologi.dev",
+      name: "Pintu Digital Teknologi",
+      url: "https://pintudigital.tech/",
     },
   ],
   creator: "Pintu Digital Teknologi Team",
   publisher: "Pintu Digital Teknologi Digital Agency",
-  metadataBase: new URL("https://garasiteknologi.dev"),
+  metadataBase: new URL("https://pintudigital.tech/"),
   alternates: {
     canonical: "/",
     languages: {
@@ -121,13 +126,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://Pintu Digital Teknologi.dev",
+    url: "https://pintudigital.tech/",
     siteName: "Pintu Digital Teknologi Digital Agency",
     title: "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
     description: "Website modern, cepat, dan SEO-optimized untuk bisnis Anda.",
     images: [
       {
-        url: "https://Pintu Digital Teknologi.dev/og-image.png",
+        url: "https://pintudigital.tech/og-image.png",
         width: 1200,
         height: 630,
         alt: "Pintu Digital Teknologi - Digital Agency Indonesia",
@@ -140,7 +145,7 @@ export const metadata: Metadata = {
     title: "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
     description:
       "Website modern, cepat, dan SEO-optimized untuk bisnis Anda. Konsultasi gratis!",
-    images: ["https://Pintu Digital Teknologi.dev/twitter-image.png"],
+    images: ["https://pintudigital.tech/twitter-image.png"],
     creator: "@Pintu Digital Teknologi",
   },
   icons: {
@@ -203,11 +208,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Pintu Digital Teknologi Digital Agency",
-              url: "https://Pintu Digital Teknologi.dev",
-              logo: "https://Pintu Digital Teknologi.dev/logo.png",
+              url: "https://pintudigital.tech/",
+              logo: "https://pintudigital.tech/logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+62-21-xxxx-xxxx",
+                telephone: "+62-823-3261-9095",
                 contactType: "customer service",
                 areaServed: "ID",
                 availableLanguage: ["Indonesian", "English"],
