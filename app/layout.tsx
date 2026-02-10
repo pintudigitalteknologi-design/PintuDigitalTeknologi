@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata, Viewport } from "next";
-import { Poppins, Inter, Open_Sans } from "next/font/google";
+import { Open_Sans, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -128,7 +128,8 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://pintudigital.tech/",
     siteName: "Pintu Digital Teknologi Digital Agency",
-    title: "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
+    title:
+      "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
     description: "Website modern, cepat, dan SEO-optimized untuk bisnis Anda.",
     images: [
       {
@@ -142,7 +143,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
+    title:
+      "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
     description:
       "Website modern, cepat, dan SEO-optimized untuk bisnis Anda. Konsultasi gratis!",
     images: ["https://pintudigital.tech/twitter-image.png"],

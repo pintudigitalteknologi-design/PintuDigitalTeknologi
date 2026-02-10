@@ -102,43 +102,11 @@ export function HeroSection() {
               Lihat Showreel
             </button>
           </motion.div>
-
-          {/* 4. Floating Info Cards (Memberikan kesan tidak monoton) */}
-          <motion.div
-            custom={3}
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl pt-12"
-          >
-            {[
-              { label: "AI Integration", val: "99%", color: "text-blue-400" },
-              {
-                label: "Client Success",
-                val: "150+",
-                color: "text-emerald-400",
-              },
-              { label: "Fast Delivery", val: "24h", color: "text-purple-400" },
-              { label: "Design Award", val: "12", color: "text-orange-400" },
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className="p-6 rounded-3xl bg-white/[0.03] border border-white/5 backdrop-blur-sm text-left group hover:bg-white/[0.06] transition-all"
-              >
-                <div className={`text-2xl font-bold ${stat.color} mb-1`}>
-                  {stat.val}
-                </div>
-                <div className="text-[10px] uppercase tracking-widest font-bold text-slate-500 group-hover:text-slate-300 transition-colors">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
 
       {/* Decorative Bottom Gradient Line */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      {/* <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" /> */}
     </section>
   );
 }

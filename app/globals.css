@@ -13,7 +13,7 @@
   --popover-foreground: #1a1a1a;
   --primary: #2d2d2d;
   --primary-foreground: #ffffff;
-  --secondary: #e8e8e8;
+  "@layerbase{*{@applyborder-borderoutline-ring/50}body{@applybg-backgroundtext-foreground}}/*Performanceoptimizations*/@layerutilities{.content-visibility-auto{content-visibility:autocontain-intrinsic-size:0500px}.will-change-transform{will-change:transform}.will-change-opacity{will-change:opacity}.gpu-accelerated{transform:translateZ(0)backface-visibility:hiddenperspective:1000px}.text-rendering-optimize{text-rendering:optimizeSpeed}.image-optimized{image-rendering:-webkit-optimize-contrast}}"--secondary: #e8e8e8;
   --secondary-foreground: #2d2d2d;
   --muted: #e8e8e8;
   --muted-foreground: #6b7280;

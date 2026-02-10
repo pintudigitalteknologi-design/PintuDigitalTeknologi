@@ -1,12 +1,84 @@
-import { HeroSection } from "@/components/sections/HeroSection";
-import TechStackSection from "@/components/sections/TechStack";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { ContactSection } from "@/components/sections/ContactSection";
-import FeaturesSection from "@/components/sections/FeaturesSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { PortfolioSection } from "@/components/sections/PortfolioSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
+import dynamic from "next/dynamic";
+// import { PortfolioSection } from "@/components/sections/PortfolioSection";
+// import { ProcessSection } from "@/components/sections/ProcessSection";
 
+// Dynamically import sections for better code splitting and performance
+const HeroSection = dynamic(
+  () =>
+    import("@/components/sections/HeroSection").then((mod) => ({
+      default: mod.HeroSection,
+    })),
+  {
+    loading: () => <div className="min-h-screen bg-[#050505] animate-pulse" />,
+    ssr: true,
+  },
+);
+const TechStackSection = dynamic(
+  () =>
+    import("@/components/sections/TechStack").then((mod) => ({
+      default: mod.default,
+    })),
+  {
+    loading: () => (
+      <div className="h-96 bg-gray-100 dark:bg-gray-900 animate-pulse" />
+    ),
+  },
+);
+const TestimonialsSection = dynamic(
+  () =>
+    import("@/components/sections/TestimonialsSection").then((mod) => ({
+      default: mod.TestimonialsSection,
+    })),
+  {
+    loading: () => (
+      <div className="h-96 bg-gray-100 dark:bg-gray-900 animate-pulse" />
+    ),
+  },
+);
+const ContactSection = dynamic(
+  () =>
+    import("@/components/sections/ContactSection").then((mod) => ({
+      default: mod.ContactSection,
+    })),
+  {
+    loading: () => (
+      <div className="h-96 bg-gray-100 dark:bg-gray-900 animate-pulse" />
+    ),
+  },
+);
+const FeaturesSection = dynamic(
+  () =>
+    import("@/components/sections/FeaturesSection").then((mod) => ({
+      default: mod.default,
+    })),
+  {
+    loading: () => (
+      <div className="h-96 bg-gray-100 dark:bg-gray-900 animate-pulse" />
+    ),
+  },
+);
+const ServicesSection = dynamic(
+  () =>
+    import("@/components/sections/ServicesSection").then((mod) => ({
+      default: mod.ServicesSection,
+    })),
+  {
+    loading: () => (
+      <div className="h-96 bg-gray-100 dark:bg-gray-900 animate-pulse" />
+    ),
+  },
+);
+const PriceListingSection = dynamic(
+  () =>
+    import("@/components/sections/PriceListingSection").then((mod) => ({
+      default: mod.default,
+    })),
+  {
+    loading: () => (
+      <div className="h-96 bg-gray-100 dark:bg-gray-900 animate-pulse" />
+    ),
+  },
+);
 
 export default function Home() {
   return (
@@ -20,7 +92,7 @@ export default function Home() {
       <ServicesSection />
 
       {/* 3. Portfolio Section - Recent projects showcase */}
-       {/*<PortfolioSection /> */}
+      {/*<PortfolioSection /> */}
 
       {/* 6. TechStack Section - Service packages */}
       <TechStackSection />
@@ -30,6 +102,9 @@ export default function Home() {
 
       {/* 5. Process Section - How we work (6-step process) */}
       {/*<ProcessSection />*/}
+
+      {/* 6. Price Listing Section - Representative Pricing */}
+      <PriceListingSection />
 
       {/* 7. Testimonials Section - Client success stories */}
       <TestimonialsSection />

@@ -18,10 +18,11 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { label: "Services", href: "#services" },
-    { label: "Tech Stack", href: "#techstack" },
-    { label: "Why Us", href: "#features" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Services", href: "/#services" },
+    { label: "Pricing", href: "/price-list" },
+    { label: "Tech Stack", href: "/#techstack" },
+    { label: "Why Us", href: "/#features" },
+    { label: "Testimonials", href: "/#testimonials" },
   ];
 
   return (
@@ -29,7 +30,7 @@ export function Header() {
       <nav
         className={`max-w-6xl mx-auto px-6 h-16 flex items-center justify-between rounded-2xl transition-all duration-300 ${
           isScrolled
-            ? "bg-[#111111]/80 backdrop-blur-lg shadow-lg border border-slate-200/50 mx-4 md:mx-auto"
+            ? "bg-[#111111]/80 backdrop-blur-lg shadow-lg mx-4 md:mx-auto"
             : "bg-transparent mx-4 md:mx-auto"
         }`}
       >
@@ -57,15 +58,15 @@ export function Header() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              className={`text-sm font-semibold transition-colors hover:text-blue-600 ${
+              className={`text-sm font-semibold transition-colors hover:text-[#1a6994] ${
                 isScrolled ? "text-slate-100" : "text-slate-200"
               }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -96,17 +97,17 @@ export function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-24 left-4 right-4 bg-white rounded-3xl p-6 shadow-2xl border border-slate-100 md:hidden flex flex-col gap-4"
+            className="absolute top-24 left-4 right-4 bg-white rounded-3xl p-6 shadow-2xl md:hidden flex flex-col gap-4"
           >
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-lg font-bold text-slate-900 border-b border-slate-50 pb-2"
+                className="text-lg font-bold text-slate-900  pb-2"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <Button className="w-full bg-blue-600 h-12 rounded-2xl font-bold">
               Hubungi Kami

@@ -19,11 +19,14 @@ const services = [
     icon: Cpu,
     title: "AI, ML & Deep Learning",
     description:
-      "Integrasi kecerdasan buatan untuk otomatisasi bisnis. Mulai dari Predictive Analytics hingga Deep Learning agent yang bekerja 24/7.",
+      "Analisis Sentimen, Otomatisasi Proses Bisnis, Analisis Prediktif, Klasifikasi Gambar, Rekomendasi Sistem, Pembuatan Chatbot, dan lainnya",
     features: [
       "Natural Language Processing",
       "Computer Vision",
       "Predictive Models",
+      "Chatbot Development",
+      "Recommendation Systems",
+      "Business Process Automation",
     ],
     color: "text-purple-400",
     border: "hover:border-purple-500/50",
@@ -34,7 +37,7 @@ const services = [
     icon: Globe,
     title: "Web Development",
     description:
-      "Membangun infrastruktur web modern menggunakan Next.js. Fokus pada kecepatan, SEO, dan skalabilitas tingkat enterprise.",
+      "Web Informasi, Web Company Profile, Web Toko Online, Web Landing Page, Web Aplikasi, dan lainnya",
     features: ["SaaS Architecture", "Headless CMS", "Global CDN"],
     color: "text-blue-400",
     border: "hover:border-blue-500/50",
@@ -45,8 +48,8 @@ const services = [
     icon: Smartphone,
     title: "Mobile Apps",
     description:
-      "Satu codebase untuk iOS dan Android tanpa mengorbankan performa. Aplikasi native-feel dengan React Native dan Flutter.",
-    features: ["Cross-Platform", "Offline-First", "Real-time Sync"],
+      "Aplikasi Manajemen Tugas, Aplikasi Mobile E-Commerce, Aplikasi Mobile Kesehatan, dan lainnya",
+    features: ["Android", "iOS", "Cross-Platform"],
     color: "text-orange-400",
     border: "hover:border-orange-500/50",
     bg: "hover:bg-orange-500/5",
@@ -56,8 +59,8 @@ const services = [
     icon: Palette,
     title: "UI/UX & Design",
     description:
-      "Desain yang tidak hanya cantik, tapi mengonversi. Kami menggabungkan estetika dengan psikologi pengguna.",
-    features: ["User Research", "Design Systems", "Brand Identity"],
+      "Desain Logo, Desain UI/UX, Desain Kemasan, Desain Banner, Desain Konten Media Sosial, dan lainnya",
+    features: ["Logo Design", "UI/UX Design", "Packaging Design"],
     color: "text-pink-400",
     border: "hover:border-pink-500/50",
     bg: "hover:bg-pink-500/5",
@@ -67,8 +70,8 @@ const services = [
     icon: Video,
     title: "Video Production",
     description:
-      "Menghidupkan brand Anda dengan konten video dinamis, motion graphics, dan cinematic storytelling visual yang memukau.",
-    features: ["Motion Graphics", "Video Editing", "Content Creation"],
+      "Video Animasi, Video Promosi, Video Edukasi, Video Company Profile, Video Iklan, dan lainnya",
+    features: ["Animation Video", "Promotional Video", "Educational Video"],
     color: "text-red-400",
     border: "hover:border-red-500/50",
     bg: "hover:bg-red-500/5",
@@ -78,8 +81,8 @@ const services = [
     icon: Database,
     title: "Data Engineering",
     description:
-      "Ubah data mentah menjadi wawasan berharga. Pipeline data yang aman, cepat, dan siap untuk skala besar.",
-    features: ["ETL Pipelines", "Cloud Infrastructure", "Data Security"],
+      "Data Analisis, Data Visualisasi, Data Mining, Data Warehouse, dan lainnya",
+    features: ["Data Analysis", "Data Visualization", "Data Mining"],
     color: "text-emerald-400",
     border: "hover:border-emerald-500/50",
     bg: "hover:bg-emerald-500/5",
@@ -151,7 +154,8 @@ export const ServicesSection = () => {
     <section
       ref={containerRef}
       id="services"
-      className="relative py-24 md:py-32 bg-[#072331]"
+      className="relative py-24 md:py-32"
+      style={{ background: "linear-gradient(to bottom, #050505, #072331)" }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">

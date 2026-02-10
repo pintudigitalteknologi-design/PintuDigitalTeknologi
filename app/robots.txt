@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /_next/static/
+Allow: /static/
+Allow: /public/
+
+# Block internal endpoints and private routes
+Disallow: /api/
+Disallow: /_next/image*
+Disallow: /private/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://pintudigital.tech/sitemap.xml
+Host: https://pintudigital.tech
