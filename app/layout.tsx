@@ -96,12 +96,12 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Pintu Digital Teknologi",
-      url: "https://pintudigital.tech/",
+      url: "https://www.pintudigital.tech/",
     },
   ],
   creator: "Pintu Digital Teknologi Team",
   publisher: "Pintu Digital Teknologi Digital Agency",
-  metadataBase: new URL("https://pintudigital.tech/"),
+  metadataBase: new URL("https://www.pintudigital.tech/"),
   alternates: {
     canonical: "/",
     languages: {
@@ -126,14 +126,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://pintudigital.tech/",
+    url: "https://www.pintudigital.tech/",
     siteName: "Pintu Digital Teknologi Digital Agency",
     title:
       "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
     description: "Website modern, cepat, dan SEO-optimized untuk bisnis Anda.",
     images: [
       {
-        url: "https://pintudigital.tech/og-image.png",
+        url: "https://www.pintudigital.tech/og-image.png",
         width: 1200,
         height: 630,
         alt: "Pintu Digital Teknologi - Digital Agency Indonesia",
@@ -147,7 +147,7 @@ export const metadata: Metadata = {
       "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern",
     description:
       "Website modern, cepat, dan SEO-optimized untuk bisnis Anda. Konsultasi gratis!",
-    images: ["https://pintudigital.tech/twitter-image.png"],
+    images: ["https://www.pintudigital.tech/twitter-image.png"],
     creator: "@Pintu Digital Teknologi",
   },
   icons: {
@@ -210,8 +210,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Pintu Digital Teknologi Digital Agency",
-              url: "https://pintudigital.tech/",
-              logo: "https://pintudigital.tech/logo.png",
+              url: "https://www.pintudigital.tech/",
+              logo: "https://www.pintudigital.tech/logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+62-823-3261-9095",

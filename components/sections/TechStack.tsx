@@ -180,7 +180,7 @@ const TechCard = ({ category, index }: { category: any; index: number }) => {
             <p className="text-sm font-bold text-slate-200 text-center">
               {tool.name}
             </p>
-            <span className="text-[10px] text-slate-500 uppercase tracking-tighter mt-1">
+            <span className="text-[10px] text-slate-400 uppercase tracking-tighter mt-1">
               {tool.level}
             </span>
           </div>
@@ -208,6 +208,28 @@ export default function TechStackSection() {
       id="techstack"
       className="relative bg-[#072331] py-24 md:py-36 overflow-visible"
     >
+      {/* Decorative Background Accessories */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Glow orbs */}
+        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-purple-500/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute bottom-40 -left-20 w-[400px] h-[400px] bg-[#8BCDF0]/[0.04] rounded-full blur-[100px]" />
+        {/* Dot particles */}
+        <div className="absolute top-32 left-[15%] w-1.5 h-1.5 rounded-full bg-[#8BCDF0]/20" />
+        <div className="absolute top-[20%] right-[20%] w-1 h-1 rounded-full bg-purple-400/25" />
+        <div className="absolute top-[45%] left-[8%] w-2 h-2 rounded-full bg-blue-400/15" />
+        <div className="absolute bottom-[30%] right-[12%] w-1.5 h-1.5 rounded-full bg-cyan-400/20" />
+        <div className="absolute bottom-[15%] left-[25%] w-1 h-1 rounded-full bg-[#8BCDF0]/25" />
+        <div className="absolute top-[60%] right-[35%] w-1 h-1 rounded-full bg-white/10" />
+        {/* Subtle crosshatch lines */}
+        <div
+          className="absolute inset-0 opacity-[0.012]"
+          style={{
+            backgroundImage:
+              "linear-gradient(45deg, rgba(139,205,240,0.5) 1px, transparent 1px), linear-gradient(-45deg, rgba(139,205,240,0.5) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           {/* HEADER: STICKY LEFT */}
@@ -256,7 +278,7 @@ export default function TechStackSection() {
                     style={{ scaleX: progressLine }}
                   />
                 </div>
-                <p className="text-[10px] text-slate-500 mt-2 tracking-widest uppercase">
+                <p className="text-[10px] text-slate-400 mt-2 tracking-widest uppercase">
                   Scroll to explore tools
                 </p>
               </div>

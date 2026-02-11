@@ -127,7 +127,7 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
             {service.features.map((feat: string, i: number) => (
               <div
                 key={i}
-                className="flex items-center gap-2 text-sm text-slate-500 group-hover:text-slate-300 transition-colors"
+                className="flex items-center gap-2 text-sm text-slate-400 group-hover:text-slate-300 transition-colors"
               >
                 <CheckCircle2 className={`w-4 h-4 ${service.color}`} />
                 <span>{feat}</span>

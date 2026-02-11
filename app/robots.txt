@@ -11,5 +11,5 @@ Disallow: /private/
 Disallow: /admin/
 
 # Sitemap location
-Sitemap: https://pintudigital.tech/sitemap.xml
-Host: https://pintudigital.tech
+Sitemap: https://www.pintudigital.tech/sitemap.xml
+Host: https://www.pintudigital.tech

@@ -76,6 +76,21 @@ export default function FeaturesSection() {
       {/* Background Decor (Static) */}
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
+      {/* Additional decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Glow orbs */}
+        <div className="absolute -bottom-20 right-0 w-[500px] h-[400px] bg-yellow-500/[0.03] rounded-full blur-[120px]" />
+        <div className="absolute top-20 -left-20 w-[400px] h-[300px] bg-blue-500/[0.04] rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-emerald-500/[0.03] rounded-full blur-[100px]" />
+        {/* Floating dots */}
+        <div className="absolute top-[10%] left-[10%] w-1.5 h-1.5 rounded-full bg-yellow-400/20" />
+        <div className="absolute top-[25%] right-[15%] w-1 h-1 rounded-full bg-blue-400/25" />
+        <div className="absolute bottom-[20%] left-[20%] w-2 h-2 rounded-full bg-emerald-400/15" />
+        <div className="absolute top-[50%] left-[5%] w-1 h-1 rounded-full bg-purple-400/20" />
+        <div className="absolute bottom-[35%] right-[8%] w-1.5 h-1.5 rounded-full bg-pink-400/20" />
+        <div className="absolute top-[70%] right-[40%] w-1 h-1 rounded-full bg-white/10" />
+      </div>
+
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header Section */}
         <motion.div

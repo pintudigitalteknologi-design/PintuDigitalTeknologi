@@ -11,6 +11,8 @@ import {
   Globe,
   Smartphone,
   Palette,
+  Cpu,
+  Video,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -22,7 +24,7 @@ const pricingData = [
     plans: [
       {
         name: "Landing Page",
-        price: "Rp 3.500.000",
+        price: "Rp 150.000",
         description: "Perfect for marketing campaigns and portfolios.",
         features: [
           "One Page Design",
@@ -35,7 +37,7 @@ const pricingData = [
       },
       {
         name: "Company Profile",
-        price: "Rp 7.000.000",
+        price: "Rp 350.000",
         description: "Professional presence for your growing business.",
         features: [
           "Up to 5 Pages",
@@ -48,7 +50,7 @@ const pricingData = [
       },
       {
         name: "Custom Web App",
-        price: "Custom",
+        price: "Rp 500.000",
         description: "Tailored solutions for complex requirements.",
         features: [
           "Custom Database",
@@ -69,7 +71,7 @@ const pricingData = [
     plans: [
       {
         name: "MVP Starter",
-        price: "Rp 15.000.000",
+        price: "Rp 150.000",
         description: "Validasi ide aplikasi Anda dengan cepat.",
         features: [
           "Core Features",
@@ -82,7 +84,7 @@ const pricingData = [
       },
       {
         name: "Cross-Platform",
-        price: "Rp 25.000.000",
+        price: "Rp 500.000",
         description: "Running di iOS dan Android dengan satu codebase.",
         features: [
           "React Native / Flutter",
@@ -93,6 +95,19 @@ const pricingData = [
         ],
         highlight: true,
       },
+      {
+        name: "Custom Mobile App",
+        price: "Rp 500.000",
+        description: "Tailored solutions for complex requirements.",
+        features: [
+          "Custom Database",
+          "User Authentication",
+          "API Integration",
+          "Dashboard Admin",
+          "Cloud Hosting Setup",
+        ],
+        highlight: false,
+      },
     ],
   },
   {
@@ -102,7 +117,7 @@ const pricingData = [
     plans: [
       {
         name: "Logo & Branding",
-        price: "Rp 2.500.000",
+        price: "Rp 75.000",
         description: "Identitas visual yang kuat untuk brand Anda.",
         features: [
           "3 Logo Concepts",
@@ -115,7 +130,7 @@ const pricingData = [
       },
       {
         name: "UI/UX Design",
-        price: "Rp 5.000.000",
+        price: "Rp 150.000",
         description: "Desain antarmuka aplikasi/web yang user-friendly.",
         features: [
           "User Research",
@@ -125,6 +140,117 @@ const pricingData = [
           "Design System",
         ],
         highlight: true,
+      },
+      {
+        name: "Custom UI/UX Design",
+        price: "Rp 250.000",
+        description: "Tailored solutions for complex requirements.",
+        features: [
+          "Custom Database",
+          "User Authentication",
+          "API Integration",
+          "Dashboard Admin",
+          "Cloud Hosting Setup",
+        ],
+        highlight: false,
+      },
+    ],
+  },
+  {
+    category: "AI, ML & Deep Learning",
+    icon: Cpu,
+    description:
+      "Solusi kecerdasan buatan untuk otomatisasi & analisis data bisnis Anda.",
+    plans: [
+      {
+        name: "Klasifikasi & Prediksi",
+        price: "Rp 150.000",
+        description:
+          "Model AI untuk klasifikasi data, prediksi, dan analisis sentimen.",
+        features: [
+          "Image Classification",
+          "Sentiment Analysis",
+          "Predictive Modeling",
+          "Data Preprocessing",
+          "Model Deployment",
+        ],
+        highlight: false,
+      },
+      {
+        name: "Recommendation System",
+        price: "Rp 175.000",
+        description:
+          "Sistem rekomendasi berbasis collaborative & content-based filtering.",
+        features: [
+          "Collaborative Filtering",
+          "Content-Based Filtering",
+          "Hybrid Model",
+          "Real-Time Prediction",
+          "API Integration",
+        ],
+        highlight: true,
+      },
+      {
+        name: "Custom AI Solution",
+        price: "Custom",
+        description: "Solusi AI kustom sesuai kebutuhan spesifik bisnis Anda.",
+        features: [
+          "NLP / Chatbot",
+          "Computer Vision",
+          "Deep Learning Model",
+          "MLOps & Monitoring",
+          "Full Documentation",
+        ],
+        highlight: false,
+      },
+    ],
+  },
+  {
+    category: "Video Production",
+    icon: Video,
+    description:
+      "Produksi video profesional untuk promosi, branding, dan konten digital.",
+    plans: [
+      {
+        name: "Video Pendek / Reels",
+        price: "Rp70.000",
+        description:
+          "Konten video pendek untuk Instagram Reels, TikTok, atau YouTube Shorts.",
+        features: [
+          "Durasi 15-60 Detik",
+          "Script & Storyboard",
+          "Motion Graphics",
+          "Background Music",
+          "1x Revisi",
+        ],
+        highlight: false,
+      },
+      {
+        name: "Company Profile Video",
+        price: "Rp 200.000",
+        description:
+          "Video profil perusahaan profesional dengan narasi & visual sinematik.",
+        features: [
+          "Durasi 1-3 Menit",
+          "Professional Voiceover",
+          "Drone Footage",
+          "Color Grading",
+          "1x Revisi",
+        ],
+        highlight: true,
+      },
+      {
+        name: "Trailer / Cinematic",
+        price: "Rp 150.000",
+        description: "Video trailer atau iklan sinematik berkualitas tinggi.",
+        features: [
+          "Durasi 30-90 Detik",
+          "Cinematic Look",
+          "Sound Design & SFX",
+          "Advanced VFX",
+          "1x Revisi",
+        ],
+        highlight: false,
       },
     ],
   },
@@ -146,17 +272,17 @@ export default function PriceListPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#8BCDF0]/10 border border-[#8BCDF0]/20 text-[#8BCDF0] text-sm font-bold uppercase tracking-widest mb-6">
               <Zap className="w-4 h-4" />
-              Simple Pricing
+              Detail Harga Kami
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Investasi Transparan <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8BCDF0] to-blue-400">
-                Tanpa Hidden Fees.
+                Tanpa Hidden Fees
               </span>
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Kami
-              menawarkan solusi fleksibel dengan hasil berkualitas tinggi.
+              Jika tidak ada paket yang sesuai dengan kebutuhan Anda, jangan
+              ragu untuk menghubungi kami untuk mendapatkan penawaran khusus.
             </p>
           </motion.div>
         </div>
