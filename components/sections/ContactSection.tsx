@@ -29,6 +29,17 @@ export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const formRef = React.useRef<HTMLFormElement>(null);
+
+  const scrollToForm = () => {
+    if (formRef.current) {
+      const yOffset = -100; // Offset for sticky header
+      const element = formRef.current;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -61,10 +72,12 @@ export function ContactSection() {
       if (!res.ok) {
         setErrorMessage(data.error || "Gagal mengirim pesan. Coba lagi.");
         setIsLoading(false);
+        scrollToForm();
         return;
       }
 
       setIsSubmitted(true);
+      scrollToForm();
       setFormData({
         name: "",
         email: "",
@@ -172,6 +185,7 @@ export function ContactSection() {
           {/* Right Column - Form */}
           <div className="animate-slide-in-right">
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="space-y-6 p-8 bg-white/[0.04] backdrop-blur-sm rounded-2xl border border-white/[0.08]"
             >
@@ -284,7 +298,7 @@ export function ContactSection() {
                         </option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                   </div>
                 </div>
               </div>
@@ -303,21 +317,24 @@ export function ContactSection() {
                   disabled={isLoading}
                   minLength={10}
                   maxLength={2000}
-                  className="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/[0.06] text-white placeholder:text-slate-500 focus:border-[#8BCDF0]/50 focus:outline-none transition-colors resize-none disabled:opacity-50"
+                  className="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/[0.06] text-white placeholder:text-slate-500 focus:border-[#8BCDF0]/50 focus:outline-none focus:ring-1 focus:ring-[#8BCDF0]/50 transition-all resize-none disabled:opacity-50"
                 />
               </div>
 
               {/* Error message */}
               {errorMessage && (
-                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
-                  {errorMessage}
+                <div
+                  className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm animate-pulse"
+                  role="alert"
+                >
+                  ⚠️ {errorMessage}
                 </div>
               )}
 
               <Button
                 type="submit"
                 disabled={isLoading || isSubmitted}
-                className="w-full bg-[#8BCDF0] hover:bg-white text-[#072331] py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-[#8BCDF0] hover:bg-white text-[#072331] py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed transform active:scale-[0.98]"
               >
                 {isLoading ? (
                   <>
@@ -356,7 +373,10 @@ export function ContactSection() {
               </Button>
 
               {isSubmitted && (
-                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-400 text-sm">
+                <div
+                  className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-400 text-sm text-center font-medium"
+                  role="status"
+                >
                   Terima kasih! Kami akan segera menghubungi Anda.
                 </div>
               )}
