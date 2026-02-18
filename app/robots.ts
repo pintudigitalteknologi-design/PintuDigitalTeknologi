@@ -5,8 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/api/",
+      disallow: ["/api/", "/_next/image*", "/private/", "/admin/"],
     },
     sitemap: "https://www.pintudigital.tech/sitemap.xml",
+    host: "https://www.pintudigital.tech",
   };
 }

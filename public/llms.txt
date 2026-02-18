@@ -1,0 +1,23 @@
+# Pintu Digital Teknologi - Digital Agency
+
+## Summary
+Pintu Digital Teknologi is a professional digital agency based in Indonesia, specializing in:
+- Modern & Fast Website Development
+- SEO Optimization
+- Mobile App Development (Android/iOS)
+- UI/UX Design
+- Video Editing & Motion Graphics
+- AI & Machine Learning Integration
+
+## Content
+The website features:
+- Detailed breakdown of services.
+- Portfolio of past projects.
+- Blog with tech insights and updates.
+- Contact information and free consultation booking.
+
+## Contact
+- Website: https://www.pintudigital.tech/
+- Email: contact@pintudigital.tech
+- Phone: +62-823-3261-9095
+- Location: Indonesia (Serves Jakarta, Bali, Sumatra, Kalimantan, and nationwide)

@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata, Viewport } from "next";
 import { Open_Sans, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -20,18 +21,20 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "Pintu Digital Teknologi - Jasa Pembuatan Website Professional & Modern | Digital Agency Indonesia",
-    template: "%s | Pintu Digital Teknologi Digital Agency Indonesia",
+    default: "Pintu Digital Teknologi | Jasa Pembuatan Website",
+    template: "%s | Pintu Digital Teknologi",
   },
   description:
-    "Pintu Digital Teknologi adalah digital agency professional yang mengkhususkan diri dalam pembuatan website modern, cepat, dan SEO-optimized. Kami mengubah ide bisnis Anda menjadi pengalaman digital yang menakjubkan. Konsultasi gratis!",
+    "Pintu Digital Teknologi: Agency Web Modern, Cepat & SEO-Optimized. Kami mengubah ide bisnis menjadi pengalaman digital menakjubkan. Konsultasi gratis!",
   keywords: [
     // --- EXISTING WEB KEYWORDS ---
     "jasa pembuatan website",
     "web development",
     "digital agency indonesia",
     "website company profile",
+    "web design professional",
+    // ... (rest of metadata stays same, but I can't easily skip lines in replace_file_content unless I use multi_replace. Let's use multi_replace for safety and precision since I have multiple distinct edits).
+
     "web design professional",
     "jasa web jakarta",
     "pembuatan website modern",
@@ -120,7 +123,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "-xIh5pU6z7J76unrBPRuc3MSakWH03vsvNVELEi4Dyg",
     yandex: "your-yandex-verification-code",
   },
   openGraph: {
@@ -208,10 +211,20 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Pintu Digital Teknologi Digital Agency",
+              "@type": "LocalBusiness",
+              name: "Pintu Digital Teknologi",
+              description:
+                "Jasa pembuatan website modern, cepat, dan SEO-optimized, serta aplikasi mobile dan desain UI/UX.",
               url: "https://www.pintudigital.tech/",
               logo: "https://www.pintudigital.tech/logo.png",
+              image: "https://www.pintudigital.tech/og-image.png",
+              telephone: "+62-823-3261-9095",
+              priceRange: "$$",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "ID",
+                addressRegion: "Jawa Timur",
+              },
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+62-823-3261-9095",
@@ -220,15 +233,27 @@ export default function RootLayout({
                 availableLanguage: ["Indonesian", "English"],
               },
               sameAs: [
-                "https://www.instagram.com/Pintu Digital Teknologi",
-                "https://www.linkedin.com/company/Pintu Digital Teknologi",
+                "https://www.instagram.com/pintudigitalteknologi",
+                "https://www.linkedin.com/company/pintudigitalteknologi",
               ],
             }),
           }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5RQTL3DT0P"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5RQTL3DT0P');
+          `}
+        </Script>
       </head>
       <body
-        className={`${openSans.variable} ${openSans.variable} font-sans antialiased`}
+        className={`${openSans.variable} ${inter.variable} font-sans antialiased`}
       >
         <Header />
         {children}
