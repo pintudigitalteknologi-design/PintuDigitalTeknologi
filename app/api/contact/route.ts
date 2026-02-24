@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+export const dynamic = "force-dynamic";
+
 // ============================================================
 // Simple in-memory rate limiter (per IP, 3 requests per minute)
 // ============================================================
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_WINDOW = 60_000; // 1 minute
-const MAX_REQUESTS = 3;
+const MAX_REQUESTS = 5; // Increased slightly for production
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
@@ -29,7 +31,8 @@ function isRateLimited(ip: string): boolean {
 // Input sanitisation — strip HTML / script tags
 // ============================================================
 function sanitize(str: string): string {
-  return str
+  if (!str) return "";
+  return String(str)
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
@@ -73,9 +76,15 @@ export async function POST(req: NextRequest) {
   try {
     // --- Rate limiting ---
     const forwarded = req.headers.get("x-forwarded-for");
-    const ip = forwarded?.split(",")[0]?.trim() || "unknown";
+    const realIp = req.headers.get("x-real-ip");
+    // Fallback order: x-real-ip -> x-forwarded-for -> unknown
+    const ip =
+      realIp ||
+      (forwarded ? forwarded.split(",")[0].trim() : null) ||
+      "unknown";
 
-    if (isRateLimited(ip)) {
+    // If ip is 'unknown', we bypass rate limiting to prevent all valid users from being blocked on a VPS behind a proxy not setting headers
+    if (ip !== "unknown" && isRateLimited(ip)) {
       return NextResponse.json(
         { error: "Terlalu banyak request. Coba lagi dalam 1 menit." },
         { status: 429 },
@@ -160,13 +169,35 @@ export async function POST(req: NextRequest) {
     const safeProjectType = sanitize(projectType);
     const safeMessage = sanitize(message);
 
+    // --- Check Env Variables ---
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error("Missing SMTP_USER or SMTP_PASS environment variables.");
+      return NextResponse.json(
+        {
+          error:
+            "Server Configuration Error: Email tidak dapat dikirim saat ini.",
+        },
+        { status: 500 },
+      );
+    }
+
     // --- Create transporter ---
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587, // Port 587 (STARTTLS) sering kali tidak diblokir oleh VPS dibandingkan 465
+      secure: false, // secure: false wajib untuk port 587, setelahnya Nodemailer otomatis upgrade ke TLS
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      tls: {
+        // Fixes issues where the VPS server doesn't have the proper root certificates or blocks TLS checks
+        rejectUnauthorized: false,
+      },
+      // Menetapkan batas waktu 10 detik agar gagal dengan status 500 (bukan 504 Gateway Timeout yang menggantung)
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
     });
 
     // --- Compose email ---
@@ -254,8 +285,17 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Contact form error:", error);
+
+    // Check if it's a known error from Nodemailer or Network
+    if (error.code === "ECONNREFUSED" || error.code === "ETIMEDOUT") {
+      return NextResponse.json(
+        { error: "Koneksi ke server email diblokir oleh VPS. Hubungi Admin." },
+        { status: 500 },
+      );
+    }
+
     return NextResponse.json(
       { error: "Gagal mengirim pesan. Silakan coba lagi nanti." },
       { status: 500 },
