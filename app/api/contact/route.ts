@@ -184,7 +184,7 @@ export async function POST(req: NextRequest) {
     // --- Create transporter ---
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
-      port: 587, // Port 587 (STARTTLS) sering kali tidak diblokir oleh VPS dibandingkan 465
+      port: 2525, // Port 587 (STARTTLS) sering kali tidak diblokir oleh VPS dibandingkan 465
       secure: false, // secure: false wajib untuk port 587, setelahnya Nodemailer otomatis upgrade ke TLS
       auth: {
         user: process.env.SMTP_USER,
