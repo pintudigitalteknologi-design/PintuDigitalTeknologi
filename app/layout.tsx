@@ -206,6 +206,10 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
+        <meta
+          property="og:image"
+          content="https://www.pintudigital.tech/og-image.png"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
