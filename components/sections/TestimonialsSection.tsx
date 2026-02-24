@@ -36,6 +36,14 @@ const testimonials = [
     avatar: "DS",
     color: "bg-orange-50 text-orange-600",
   },
+  {
+    name: "Anantha Eka",
+    role: "Pelanggan Bot automation produk",
+    content:
+      "Hasil bot automationnya sangat memuaskan, membantu meningkatkan penjualan produk saya.",
+    avatar: "AE",
+    color: "bg-orange-50 text-orange-600",
+  },
 ];
 
 // Duplikasi data untuk efek seamless looping marquee
@@ -104,7 +112,7 @@ export function TestimonialsSection() {
               key={index}
               className="inline-block w-[350px] md:w-[450px] mx-4 whitespace-normal"
             >
-              <div className="h-full p-8 bg-white/[0.04] border border-white/[0.08] rounded-3xl hover:border-[#8BCDF0]/30 hover:bg-white/[0.07] hover:shadow-xl hover:shadow-[#8BCDF0]/5 transition-all duration-300 backdrop-blur-sm">
+              <div className="h-full flex flex-col p-8 bg-white/[0.04] border border-white/[0.08] rounded-3xl hover:border-[#8BCDF0]/30 hover:bg-white/[0.07] hover:shadow-xl hover:shadow-[#8BCDF0]/5 transition-all duration-300 backdrop-blur-sm">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -118,7 +126,7 @@ export function TestimonialsSection() {
                   "{t.content}"
                 </p>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 mt-auto">
                   <div
                     className={`w-12 h-12 rounded-full ${t.color} flex items-center justify-center font-bold text-sm`}
                   >
