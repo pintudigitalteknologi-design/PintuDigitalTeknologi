@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
+
+// Memastikan RESEND_API_KEY tersedia
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ============================================================
 // Simple in-memory rate limiter (per IP, 3 requests per minute)
@@ -170,35 +173,16 @@ export async function POST(req: NextRequest) {
     const safeMessage = sanitize(message);
 
     // --- Check Env Variables ---
-    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      console.error("Missing SMTP_USER or SMTP_PASS environment variables.");
+    if (!process.env.RESEND_API_KEY) {
+      console.error("Missing RESEND_API_KEY environment variable.");
       return NextResponse.json(
         {
           error:
-            "Server Configuration Error: Email tidak dapat dikirim saat ini.",
+            "Server Configuration Error: API Key Resend tidak ditemukan. Hubungi Admin.",
         },
         { status: 500 },
       );
     }
-
-    // --- Create transporter ---
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 2525, // Port 587 (STARTTLS) sering kali tidak diblokir oleh VPS dibandingkan 465
-      secure: false, // secure: false wajib untuk port 587, setelahnya Nodemailer otomatis upgrade ke TLS
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-      tls: {
-        // Fixes issues where the VPS server doesn't have the proper root certificates or blocks TLS checks
-        rejectUnauthorized: false,
-      },
-      // Menetapkan batas waktu 10 detik agar gagal dengan status 500 (bukan 504 Gateway Timeout yang menggantung)
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
-      socketTimeout: 10000,
-    });
 
     // --- Compose email ---
     const htmlContent = `
@@ -270,34 +254,35 @@ export async function POST(req: NextRequest) {
         <!-- Footer -->
         <div style="background-color: #f1f5f9; padding: 16px 32px; text-align: center; border-top: 1px solid #e2e8f0;">
           <p style="color: #94a3b8; font-size: 11px; margin: 0;">
-            Email ini dikirim melalui form kontak di website pintudigitalteknologi.com
+            Email ini dikirim melalui form kontak di website pintudigitalteknologi.com menggunakan Resend API
           </p>
         </div>
       </div>
     `;
 
-    await transporter.sendMail({
-      from: `"Website Contact Form" <${process.env.SMTP_USER}>`,
-      to: "pintudigitalteknologi@gmail.com",
+    // --- Send Email via Resend ---
+    const { data, error: sendError } = await resend.emails.send({
+      from: "Pintu Digital Teknologi <no-reply@pintudigital.tech>",
+      to: ["pintudigitalteknologi@gmail.com"],
       replyTo: safeEmail,
-      subject: `💬 [${safeProjectType}] Pesan dari ${safeName} — Pintu Digital`,
+      subject: `💬 [${safeProjectType}] Pesan dari ${safeName} — Pintu Digital Teknologi`,
       html: htmlContent,
     });
 
-    return NextResponse.json({ success: true });
-  } catch (error: any) {
-    console.error("Contact form error:", error);
-
-    // Check if it's a known error from Nodemailer or Network
-    if (error.code === "ECONNREFUSED" || error.code === "ETIMEDOUT") {
+    if (sendError) {
+      console.error("Resend API Error:", sendError);
       return NextResponse.json(
-        { error: "Koneksi ke server email diblokir oleh VPS. Hubungi Admin." },
+        { error: "Gagal mengirim pesan melalui penyedia email." },
         { status: 500 },
       );
     }
 
+    return NextResponse.json({ success: true, id: data?.id });
+  } catch (error: any) {
+    console.error("Contact form error:", error);
+
     return NextResponse.json(
-      { error: "Gagal mengirim pesan. Silakan coba lagi nanti." },
+      { error: "Terjadi kesalahan internal. Silakan coba lagi nanti." },
       { status: 500 },
     );
   }
